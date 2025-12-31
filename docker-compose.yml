@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  bot:
+    build: .
+    restart: unless-stopped
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - LISTINGS_PATH=${LISTINGS_PATH:-data/listings.json}
+    volumes:
+      - ./data:/app/data:ro
